@@ -13,6 +13,7 @@ def to_camel_case(snake_str):
 with open("icons.md", "w") as icons_md:
     icons_md.write("<!-- This file is generated using generate_icons_md.py -->\n")
     icons_md.write("# Icons\n")
+    icons_md.write("<style>img \n{\nbackground-color: #FFFFFF;\n}\n</style>")
     icons_md.write("\n")
     icons_md.write("|Name|Icon|iOS|Android|\n")
     icons_md.write("|---|---|---|---|\n")
@@ -44,7 +45,7 @@ with open("icons.md", "w") as icons_md:
         for weight in sorted(weights, reverse=True):
             icons_md.write(
                 f"|{asset_dir} ({weight.title()})"
-                f'|<img  src="{svg_dir}/{largest_svg_icon_path_by_weight[weight]}?raw=true" width="24" height="24" style="background-color: #FFFFFF">'
+                f'|<img src="{svg_dir}/{largest_svg_icon_path_by_weight[weight]}?raw=true" width="24" height="24">'
                 f'|{"<br />".join(ios_references_by_weight[weight])}'
                 f'|{"<br />".join(android_references_by_weight[weight])}|\n'
             )
